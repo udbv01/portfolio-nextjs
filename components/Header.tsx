@@ -1,16 +1,20 @@
-"use client"
+'use client'
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Menu, X } from 'lucide-react'
 import { SocialIcon } from './SocialIcon'
 
-export function Header() {
+interface HeaderProps {
+  isMenuOpen: boolean
+  setIsMenuOpen: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+export function Header({ isMenuOpen, setIsMenuOpen }: HeaderProps) {
   const [isAboveHero, setIsAboveHero] = useState(false) // Header über Hero Section
   const [isAboveProject, setIsAboveProject] = useState(false) // Header über Project Section
   const [isAboveSkills, setIsAboveSkills] = useState(false) // Header über Skills Section
   const [isAboveContact, setIsAboveContact] = useState(false) // Header über Contact Section
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
