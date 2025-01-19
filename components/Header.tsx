@@ -19,10 +19,11 @@ export function Header() {
       const skillsSection = document.getElementById('skills-section')
       const contactSection = document.getElementById('contact-section')
 
-      const getRectTop = (section) => section?.getBoundingClientRect().top ?? Infinity
+      // Typ für 'section' hinzugefügt
+      const getRectTop = (section: HTMLElement | null) => section?.getBoundingClientRect().top ?? Infinity
       const headerHeight = document.querySelector('header')?.offsetHeight || 0
 
-      const isHeaderOverSection = (section) => {
+      const isHeaderOverSection = (section: HTMLElement | null) => {
         const top = getRectTop(section)
         return top <= headerHeight && top + (section?.offsetHeight || 0) > headerHeight
       }
