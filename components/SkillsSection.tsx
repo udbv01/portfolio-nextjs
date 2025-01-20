@@ -26,7 +26,7 @@ export function SkillsSection() {
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null)
 
   return (
-    <div id="skills-section" className="h-[100vh] flex flex-col items-center bg-black text-white relative overflow-hidden py-20">
+    <div id="skills-section" className="h-screen flex flex-col items-center bg-black text-white relative overflow-hidden py-20">
       <h2 className="text-4xl font-bold mb-16 z-10">Tools und Skills</h2>
 
       <div className="relative w-full max-w-4xl h-[600px]">
