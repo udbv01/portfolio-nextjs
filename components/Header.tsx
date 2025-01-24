@@ -19,8 +19,8 @@ export function Header({ isMenuOpen, setIsMenuOpen }: HeaderProps) {
   useEffect(() => {
     const handleScroll = () => {
       const heroSection = document.getElementById('hero-section')
-      const projectSection = document.getElementById('project-section')
       const skillsSection = document.getElementById('skills-section')
+      const projectSection = document.getElementById('project-section')
       const contactSection = document.getElementById('contact-section')
 
       // Typ für 'section' hinzugefügt
@@ -33,8 +33,8 @@ export function Header({ isMenuOpen, setIsMenuOpen }: HeaderProps) {
       }
 
       setIsAboveHero(isHeaderOverSection(heroSection))
-      setIsAboveProject(isHeaderOverSection(projectSection))
       setIsAboveSkills(isHeaderOverSection(skillsSection))
+      setIsAboveProject(isHeaderOverSection(projectSection))
       setIsAboveContact(isHeaderOverSection(contactSection))
     }
 
@@ -89,13 +89,13 @@ export function Header({ isMenuOpen, setIsMenuOpen }: HeaderProps) {
         <nav className="h-full flex flex-col justify-center items-center">
           <ul className="space-y-8 text-center">
             <NavItem href="#hero-section" text="Start" setIsMenuOpen={setIsMenuOpen} />
-            <NavItem href="#project-section" text="Projekte" setIsMenuOpen={setIsMenuOpen} />
             <NavItem href="#skills-section" text="Skills" setIsMenuOpen={setIsMenuOpen} />
+            <NavItem href="#project-section" text="Projekte" setIsMenuOpen={setIsMenuOpen} />
             <NavItem href="#contact-section" text="Kontakt" setIsMenuOpen={setIsMenuOpen} />
           </ul>
           <div className="flex justify-center space-x-6 mt-12">
-            <SocialIcon icon="facebook" />
-            <SocialIcon icon="twitter" />
+            <SocialIcon icon="github" />
+            <SocialIcon icon="mail" />
             <SocialIcon icon="instagram" />
             <SocialIcon icon="linkedin" />
           </div>

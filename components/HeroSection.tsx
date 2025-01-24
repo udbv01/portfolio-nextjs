@@ -16,9 +16,9 @@ export default function HeroSection() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const scrollToContent = () => {
-    const projectSection = document.getElementById('project-section')
-    if (projectSection) {
-      projectSection.scrollIntoView({ behavior: 'smooth' })
+    const skillsSection = document.getElementById('skills-section')
+    if (skillsSection) {
+      skillsSection.scrollIntoView({ behavior: 'smooth' })
     }
   }
 
@@ -32,10 +32,10 @@ export default function HeroSection() {
       {/* Left white column (social icons) - hidden on mobile */}
       <div className="hidden md:flex md:w-[15%] bg-white justify-left items-center p-4 min-h-screen">
         <div className="flex flex-col space-y-4">
-          <SocialIcon icon="facebook" />
-          <SocialIcon icon="twitter" />
-          <SocialIcon icon="instagram" />
-          <SocialIcon icon="linkedin" />
+        <SocialIcon icon="github" />
+        <SocialIcon icon="mail" />
+        <SocialIcon icon="instagram" />
+        <SocialIcon icon="linkedin" />
         </div>
       </div>
 
@@ -51,7 +51,7 @@ export default function HeroSection() {
           onClick={scrollToContent}
           className="mt-10 bg-black text-white px-6 py-3 rounded-md shadow-lg hover:bg-gray-300 transition-all duration-400 md:bg-white md:text-black"
         >
-          Projekte anzeigen
+          Skills anzeigen
         </button>
       </div>
 

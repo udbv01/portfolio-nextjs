@@ -1,22 +1,23 @@
-import { Facebook, Twitter, Instagram, Linkedin } from 'lucide-react'
-
 interface SocialIconProps {
-  icon: 'facebook' | 'twitter' | 'instagram' | 'linkedin'
+  icon: 'github' | 'email' | 'instagram' | 'linkedin';
 }
 
 export function SocialIcon({ icon }: SocialIconProps) {
-  const iconClasses = "text-black cursor-pointer transition-transform hover:scale-110"
-  switch (icon) {
-    case 'facebook':
-      return <Facebook className={iconClasses} size={30} />
-    case 'twitter':
-      return <Twitter className={iconClasses} size={30} />
-    case 'instagram':
-      return <Instagram className={iconClasses} size={30} />
-    case 'linkedin':
-      return <Linkedin className={iconClasses} size={30} />
-    default:
-      return null
-  }
-}
+  const iconClasses = "cursor-pointer transition-transform hover:scale-110";
+  
+  const iconLinks = {
+    github: "https://github.com/udbv01",
+    email: "mailto:ubaid.basnukaev@gmx.de",
+    instagram: "https://instagram.com/udbv01",
+    linkedin: "https://linkedin.com/in/deinusername"
+  };
 
+  return (
+    <a href={iconLinks[icon]} target="_blank" rel="noopener noreferrer">
+      {icon === 'github' && <img src="/icons/github.svg" alt="GitHub" className={iconClasses} />}
+      {icon === 'mail' && <img src="/icons/mail.svg" alt="Email" className={iconClasses} />}
+      {icon === 'instagram' && <img src="/icons/instagram.svg" alt="Instagram" className={iconClasses} />}
+      {icon === 'linkedin' && <img src="/icons/linkedin.svg" alt="LinkedIn" className={iconClasses} />}
+    </a>
+  );
+}

@@ -84,7 +84,7 @@ export function ProjectSection() {
   return (
     <div
       id="project-section"
-      className="h-screen flex flex-col justify-center items-center bg-black text-white relative overflow-hidden py-20"
+      className="h-screen flex flex-col justify-center items-center bg-gradient-to-b from-gray-900 to-black text-white relative overflow-hidden py-20"
       {...swipeHandlers}
     >
       <h2 className="text-4xl font-bold mb-16 z-10">Meine Projekte</h2>
