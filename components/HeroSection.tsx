@@ -49,7 +49,7 @@ export default function HeroSection() {
         {/* Scroll button */}
         <button 
           onClick={scrollToContent}
-          className="mt-10 bg-black text-white px-6 py-3 rounded-md shadow-lg hover:bg-gray-800 transition-all duration-400 md:bg-white md:text-black"
+          className="mt-10 bg-black text-white px-6 py-3 rounded-md shadow-lg hover:bg-gray-300 transition-all duration-400 md:bg-white md:text-black"
         >
           Projekte anzeigen
         </button>

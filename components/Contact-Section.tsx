@@ -9,7 +9,7 @@ export default function ContactSection() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
-    setFormData(prevData => ({
+    setFormData((prevData) => ({
       ...prevData,
       [name]: value,
     }))
@@ -21,16 +21,14 @@ export default function ContactSection() {
     setFormData({ name: '', email: '', message: '' })
   }
 
-  // Check if CTA section is in the viewport
   const handleScroll = () => {
     const ctaSection = document.getElementById('contact-section')
     if (ctaSection) {
       const rect = ctaSection.getBoundingClientRect()
-      setShowButton(rect.top <= window.innerHeight && rect.bottom >= 0) // Button wird angezeigt, wenn CTA-Sektion im Viewport ist
+      setShowButton(rect.top <= window.innerHeight && rect.bottom >= 0)
     }
   }
 
-  // Set up scroll listener on component mount
   useEffect(() => {
     window.addEventListener('scroll', handleScroll)
     return () => {
@@ -38,7 +36,6 @@ export default function ContactSection() {
     }
   }, [])
 
-  // Funktion für sanftes Scrollen nach oben
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -47,12 +44,14 @@ export default function ContactSection() {
   }
 
   return (
-    <div id="contact-section" className="w-full bg-white text-black py-20 md:py-20 flex items-center justify-center min-h-screen overflow-hidden">
-      <div className="text-center w-3/4 md:w-2/3 lg:w-1/2 xl:w-1/2">
-        <h2 className="text-4xl font-bold mb-16 z-10">
-          CTA und Kontaktform!
-        </h2>
-        <div className="w-full bg-black text-white p-8 rounded-lg shadow-lg mx-auto">
+    <div
+      id="contact-section"
+      className="h-screen flex flex-col justify-center items-center bg-white text-black relative overflow-hidden py-20"
+    >
+      <h2 className="text-4xl font-bold mb-16 z-10">CTA und Kontaktform!</h2>
+
+      <div className="relative w-[80%] max-w-4xl h-[500px] perspective-1000 mx-auto md:w-full">
+        <div className="w-full bg-black text-white p-8 rounded-lg shadow-custom">
           {isSubmitted ? (
             <div className="text-center text-green-400">
               <h3 className="text-2xl font-bold">Danke für deine Nachricht!</h3>
@@ -61,7 +60,10 @@ export default function ContactSection() {
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="text-left block text-sm font-bold text-white mb-2">
+                <label
+                  htmlFor="name"
+                  className="text-left block text-sm font-bold text-white mb-2"
+                >
                   Dein Name
                 </label>
                 <input
@@ -76,7 +78,10 @@ export default function ContactSection() {
                 />
               </div>
               <div>
-                <label htmlFor="email" className="text-left block text-sm font-bold text-white mb-2">
+                <label
+                  htmlFor="email"
+                  className="text-left block text-sm font-bold text-white mb-2"
+                >
                   Deine E-Mail
                 </label>
                 <input
@@ -91,7 +96,10 @@ export default function ContactSection() {
                 />
               </div>
               <div>
-                <label htmlFor="message" className="text-left block text-sm font-bold text-white mb-2">
+                <label
+                  htmlFor="message"
+                  className="text-left block text-sm font-bold text-white mb-2"
+                >
                   Deine Nachricht
                 </label>
                 <textarea
@@ -117,7 +125,6 @@ export default function ContactSection() {
         </div>
       </div>
 
-      {/* Back to top button */}
       {showButton && (
         <button
           onClick={scrollToTop}
@@ -126,6 +133,12 @@ export default function ContactSection() {
           ↑
         </button>
       )}
+
+      <style jsx global>{`
+        .shadow-custom {
+          box-shadow: 1px 1px 10px rgba(191, 191, 191, 0.5);
+        }
+      `}</style>
     </div>
   )
 }
