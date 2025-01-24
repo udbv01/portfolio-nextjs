@@ -15,7 +15,7 @@ export function SocialIcon({ icon }: SocialIconProps) {
   return (
     <a href={iconLinks[icon]} target="_blank" rel="noopener noreferrer">
       {icon === 'github' && <img src="/icons/github.svg" alt="GitHub" className={iconClasses} />}
-      {icon === 'mail' && <img src="/icons/mail.svg" alt="Email" className={iconClasses} />}
+      {icon === 'email' && <img src="/icons/mail.svg" alt="Email" className={iconClasses} />}
       {icon === 'instagram' && <img src="/icons/instagram.svg" alt="Instagram" className={iconClasses} />}
       {icon === 'linkedin' && <img src="/icons/linkedin.svg" alt="LinkedIn" className={iconClasses} />}
     </a>

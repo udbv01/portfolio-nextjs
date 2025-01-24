@@ -95,7 +95,7 @@ export function Header({ isMenuOpen, setIsMenuOpen }: HeaderProps) {
           </ul>
           <div className="flex justify-center space-x-6 mt-12">
             <SocialIcon icon="github" />
-            <SocialIcon icon="mail" />
+            <SocialIcon icon="email" />
             <SocialIcon icon="instagram" />
             <SocialIcon icon="linkedin" />
           </div>

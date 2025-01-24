@@ -33,7 +33,7 @@ export default function HeroSection() {
       <div className="hidden md:flex md:w-[15%] bg-white justify-left items-center p-4 min-h-screen">
         <div className="flex flex-col space-y-4">
         <SocialIcon icon="github" />
-        <SocialIcon icon="mail" />
+        <SocialIcon icon="email" />
         <SocialIcon icon="instagram" />
         <SocialIcon icon="linkedin" />
         </div>
