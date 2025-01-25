@@ -69,8 +69,8 @@ export default function ContactSection() {
     <div
       id="contact-section"
       className="h-screen flex flex-col justify-center items-center bg-white text-black relative overflow-hidden py-20">
-      <h2 className="text-4xl font-bold m-5 animate-fade-in-up z-10">Überzeugt?</h2>
-      <p className="text-[clamp(1rem, 2.5vw, 1.25rem)] mb-8 animate-fade-in-up text-gray-700 md:text-gray-400">Dann freue ich mich auf Deine Nachricht!</p>
+      <h2 className="text-4xl font-bold mt-8 animate-fade-in-up z-10">Überzeugt?</h2>
+      <p className="text-[clamp(1rem, 2.5vw, 1.25rem)] mb-8 mt-4 animate-fade-in-up text-gray-700 md:text-gray-400">Dann freue ich mich auf Deine Nachricht!</p>
 
       <div className="relative w-[80%] max-w-4xl h-[500px] perspective-1000 mx-auto md:w-full">
         <div className="w-full bg-black text-white p-8 rounded-lg shadow-custom">
@@ -146,7 +146,7 @@ export default function ContactSection() {
           )}
         </div>
       </div>
-      <div className="flex justify-center space-x-6 m-10">
+      <div className="flex justify-center space-x-6 m-8">
             <SocialIcon icon="github" />
             <SocialIcon icon="email" />
             <SocialIcon icon="instagram" />
