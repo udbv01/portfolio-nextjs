@@ -14,25 +14,25 @@ interface Project {
 
 const projects: Project[] = [
   {
+    title: 'Diese Portfolio Website',
+    description: 'Dieses Next.js Portfolio habe ich erstellt, um meine Fähigkeiten und Erfahrungen auf effektivster Art und Weise zu presentieren. ',
+    image: '/mein-portfolio.jpg',
+    liveDemoUrl: '/',
+    moreInfoUrl: 'https://github.com/udbv01/portfolio-nextjs.git',
+  },
+  {
+    title: 'Wordpress Homepage',
+    description: 'Eine Unternehmensseite, die ich für meinen Kumpel erstellt habe, um meine Fähigkeiten in Wordpress weiterzuentwickeln.',
+    image: '/wp-eichlerwerbung.jpg',
+    liveDemoUrl: 'https://eichlerwerbung.de/wordpress/',
+    moreInfoUrl: '',
+  },
+  {
     title: 'To-Do List App',
-    description: 'Eine einfache To-Do-Liste, die es Nutzern ermöglicht, Aufgaben zu erstellen, abzuhaken und zu löschen.',
+    description: 'Aufgaben, Unteraufgaben und Routineaufgaben die man filtern kann. Eine so funktionale To-Do App ist vermutlich kostenpflicht. Probier sie kostenlos aus.',
     image: '/todoapp.jpg',
     liveDemoUrl: '/projects/todo-list',
-    moreInfoUrl: '/projects/todo-list',
-  },
-  {
-    title: 'Weather App',
-    description: 'Eine App, die das aktuelle Wetter für eine eingegebene Stadt anzeigt.',
-    image: '/weatherapp.jpg',
-    liveDemoUrl: '/projects/weather-app',
-    moreInfoUrl: '/projects/weather-app',
-  },
-  {
-    title: 'Portfolio Website',
-    description: 'Ein persönliches Portfolio, das meine Fähigkeiten und Projekte präsentiert.',
-    image: '/portfolioapp.jpg',
-    liveDemoUrl: '/projects/portfolio',
-    moreInfoUrl: '/projects/portfolio',
+    moreInfoUrl: 'https://github.com/udbv01/portfolio-nextjs/blob/b0213b700b1b34cc844a88fbf98c74fe6e005f6a/pages/projects/todo-list.tsx',
   },
 ];
 
@@ -122,12 +122,18 @@ export function ProjectSection() {
                 <h3 className="text-2xl font-semibold mb-4">{project.title}</h3>
                 <p className="mb-6">{project.description}</p>
                 <div className="flex space-x-4">
-                <a href={project.liveDemoUrl} target="_blank" rel="noopener noreferrer">
+                  <a href={project.liveDemoUrl} target="_blank" rel="noopener noreferrer">
+                  <button className="px-4 py-2 bg-white border-2 border-gray-300 text-black rounded-md hover:bg-gray-300 hover:transition-colors duration-300 ease-in-out">
+                     Live ansehen
+                   </button>
+                   </a>
+                   {project.moreInfoUrl && ( <a href={project.moreInfoUrl} target="_blank" rel="noopener noreferrer">
                   <button className="px-4 py-2 bg-transparent border-2 border-white text-white rounded-md hover:bg-white hover:text-black transition-colors duration-300 ease-in-out">
-                  Live Demo
-                  </button>
-                </a>
-                </div>
+                    Repository ansehen
+                    </button>
+                  </a> )}
+                  </div>
+
               </div>
               </div>
             </motion.div>

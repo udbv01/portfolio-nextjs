@@ -30,7 +30,7 @@ export default function ToDoApp() {
           const lastCompletedDate = new Date(task.lastCompleted);
           const timeDifference = currentDate.getTime() - lastCompletedDate.getTime();
           const daysDifference = timeDifference / (1000 * 3600 * 24);
-          // Reset task completion if more than 24 hours have passed
+          // Reset wenn über 24h vergangen
           if (daysDifference >= 1) {
             return { ...task, completed: false, lastCompleted: currentDate };
           }
@@ -38,9 +38,9 @@ export default function ToDoApp() {
         return task;
       });
       setTasks(updatedTasks);
-    }, 24 * 60 * 60 * 1000); // Check every 24 hours
+    }, 24 * 60 * 60 * 1000); // Check alle 24h
 
-    return () => clearInterval(interval); // Cleanup the interval on component unmount
+    return () => clearInterval(interval);
   }, [tasks]);
 
   useEffect(() => {
@@ -132,7 +132,7 @@ export default function ToDoApp() {
                 routine: false,
                 priority: 'normal',
                 subTasks: [],
-                lastCompleted: null, // Füge `lastCompleted` hinzu
+                lastCompleted: null,
               },
             ],
           }
@@ -163,11 +163,11 @@ export default function ToDoApp() {
 
   const getPriorityColor = (priority: string) => {
     switch (priority) {
-      case 'high':
+      case 'dringend':
         return 'bg-red-600';
       case 'normal':
         return 'bg-yellow-500';
-      case 'low':
+      case 'ok':
         return 'bg-green-600';
       default:
         return '';
@@ -176,7 +176,7 @@ export default function ToDoApp() {
 
 
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center bg-gray-900 text-white py-16 px-4">
+    <div className="min-h-screen flex flex-col justify-top md-justify-center items-center bg-gray-900 text-white py-8 px-4">
       <h1 className="text-4xl font-bold mb-8">To-Do App</h1>
       <div className="max-w-3xl w-full bg-gray-800 p-6 rounded-lg shadow-md">
         <input
@@ -199,7 +199,7 @@ export default function ToDoApp() {
             Routine-Aufgabe
           </label>
         </div>
-        <div className="mb-4">
+        <div className="mb-2">
           <label htmlFor="dueDate" className="block">Fälligkeitsdatum:</label>
           <input
             id="dueDate"
@@ -209,17 +209,17 @@ export default function ToDoApp() {
             className="w-full px-4 py-2 bg-gray-700 text-white rounded-lg mb-4"
           />
         </div>
-        <div className="mb-4">
+        <div className="mb-2">
           <label htmlFor="priority" className="block">Wichtigkeit:</label>
           <select
             id="priority"
             value={priority}
             onChange={(e) => setPriority(e.target.value)}
-            className="w-full px-4 py-2 bg-gray-700 text-white rounded-lg"
+            className="w-full px-4 py-2 bg-gray-700 text-white rounded-lg mb-4"
           >
             <option value="normal">Normal</option>
-            <option value="high">Hoch</option>
-            <option value="low">Niedrig</option>
+            <option value="dringend">Hoch</option>
+            <option value="ok">Niedrig</option>
           </select>
         </div>
         <button
@@ -229,28 +229,35 @@ export default function ToDoApp() {
           Aufgabe hinzufügen
         </button>
 
-        <div className="flex space-x-4 mb-4">
-          <button
-            onClick={() => setFilter('all')}
-            className="px-4 py-2 bg-blue-500 text-white rounded-lg"
-          >
-            Alle
-          </button>
-          <button
-            onClick={() => setFilter('completed')}
-            className="px-4 py-2 bg-blue-500 text-white rounded-lg"
-          >
-            Erledigt
-          </button>
-          <button
-            onClick={() => setFilter('incomplete')}
-            className="px-4 py-2 bg-blue-500 text-white rounded-lg"
-          >
-            Unerledigt
-          </button>
-        </div>
+        <div className="w-full flex justify-between mb-4">
+  <button
+    onClick={() => setFilter('all')}
+    className={`px-4 py-2 rounded-lg ${
+      filter === 'all' ? 'bg-blue-700' : 'bg-blue-500'
+    } text-white`}
+  >
+    Alle
+  </button>
+  <button
+    onClick={() => setFilter('completed')}
+    className={`px-4 py-2 rounded-lg ${
+      filter === 'completed' ? 'bg-blue-700' : 'bg-blue-500'
+    } text-white`}
+  >
+    Erledigt
+  </button>
+  <button
+    onClick={() => setFilter('incomplete')}
+    className={`px-4 py-2 rounded-lg ${
+      filter === 'incomplete' ? 'bg-blue-700' : 'bg-blue-500'
+    } text-white`}
+  >
+    Unerledigt
+  </button>
+</div>
 
-        <ul className="space-y-4 max-h-[70vh] overflow-y-auto">
+
+        <ul className="space-y-4 overflow-y-auto">
           {filteredTasks.map((task, index) => (
             <li
               key={index}
@@ -277,9 +284,10 @@ export default function ToDoApp() {
                     <span className="ml-2 text-blue-500">🔁</span> // Wiederholungs-Symbol
                   )}
                 </div>
-                <div className={`w-3 h-3 ${getPriorityColor(task.priority)}`}></div>
-              </div>
-
+                <div className="relative flex items-center p-2">
+                  <div className={`tooltip w-4 h-4 rounded-full ${getPriorityColor(task.priority)}`} data-tooltip={task.priority}></div>
+                </div>
+                </div>
               <div className="ml-6">
                 {task.subTasks.map((subTask, subIndex) => (
                   <div key={subIndex} className="flex items-center">
@@ -303,8 +311,8 @@ export default function ToDoApp() {
                       updatedSubTasks[index] = e.target.value;
                       setNewSubTasks(updatedSubTasks);
                     }}
-                    placeholder="Unteraufgabe hinzufügen"
-                    className="px-4 py-2 bg-gray-700 text-white rounded-lg mr-4"
+                    placeholder="eine Unteraufgabe"
+                    className="px-2 py-2 bg-gray-700 text-white rounded-lg"
                   />
                   <button
                     onClick={() => addSubTask(index)}
@@ -317,7 +325,7 @@ export default function ToDoApp() {
 
               <button
                 onClick={() => handleDeleteTask(index)}
-                className="ml-4 mt-4 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg"
+                className="ml-6 mt-4 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg"
               >
                 Löschen
               </button>

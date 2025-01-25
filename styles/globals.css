@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.tooltip {
+    position: absolute;
+    display: inline-block;
+  }
+  
+  .tooltip::after {
+    content: attr(data-tooltip); /* Tooltip-Text wird aus dem data-tooltip-Attribut genommen */
+    position: absolute;
+    left: -100%;
+    transform: translateX(-100%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease-in-out;
+    z-index: 100;
+  }
+  
+  .tooltip:hover::after {
+    opacity: 1;
+  }
+  

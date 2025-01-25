@@ -97,7 +97,7 @@ export function Header({ isMenuOpen, setIsMenuOpen }: HeaderProps) {
             <SocialIcon icon="github" />
             <SocialIcon icon="email" />
             <SocialIcon icon="instagram" />
-            <SocialIcon icon="linkedin" />
+            <SocialIcon icon="whatsapp" />
           </div>
         </nav>
       </div>

@@ -1,5 +1,5 @@
 interface SocialIconProps {
-  icon: 'github' | 'email' | 'instagram' | 'linkedin';
+  icon: 'github' | 'email' | 'instagram' | 'whatsapp';
 }
 
 export function SocialIcon({ icon }: SocialIconProps) {
@@ -9,7 +9,7 @@ export function SocialIcon({ icon }: SocialIconProps) {
     github: "https://github.com/udbv01",
     email: "mailto:ubaid.basnukaev@gmx.de",
     instagram: "https://instagram.com/udbv01",
-    linkedin: "https://linkedin.com/in/deinusername"
+    whatsapp: "https://wa.me/491739807961"
   };
 
   return (
@@ -17,7 +17,7 @@ export function SocialIcon({ icon }: SocialIconProps) {
       {icon === 'github' && <img src="/icons/github.svg" alt="GitHub" className={iconClasses} />}
       {icon === 'email' && <img src="/icons/mail.svg" alt="Email" className={iconClasses} />}
       {icon === 'instagram' && <img src="/icons/instagram.svg" alt="Instagram" className={iconClasses} />}
-      {icon === 'linkedin' && <img src="/icons/linkedin.svg" alt="LinkedIn" className={iconClasses} />}
+      {icon === 'whatsapp' && <img src="/icons/message.svg" alt="WhatsApp" className={iconClasses} />}
     </a>
   );
 }

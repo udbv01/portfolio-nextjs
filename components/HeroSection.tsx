@@ -35,15 +35,15 @@ export default function HeroSection() {
         <SocialIcon icon="github" />
         <SocialIcon icon="email" />
         <SocialIcon icon="instagram" />
-        <SocialIcon icon="linkedin" />
+        <SocialIcon icon="whatsapp" />
         </div>
       </div>
 
       {/* Middle column */}
       <div className="w-full md:w-[70%] flex flex-col justify-center items-center px-4 py-20">
         <TypedHeadline headlines={headlines} />
-        <p className="text-[clamp(1rem, 2.5vw, 1.25rem)] mb-8 animate-fade-in-up text-gray-700 md:text-gray-400">
-          Dein mehrsprachiger Webdesigner und leidenschaftlicher Frontend-Developer!
+        <p className="text-[clamp(1rem, 2.5vw, 1.25rem)] animate-fade-in-up text-gray-700 md:text-gray-400 p-20">
+        Ich bin ein mehrsprachiger, ausgebildeter E-Commerce-Kaufmann, der seine Leidenschaft für Webdesign entdeckt hat. Diese Begeisterung hat mich dazu inspiriert, mich auf die Entwicklung moderner und benutzerfreundlicher Webanwendungen zu spezialisieren.
         </p>
 
         {/* Scroll button */}

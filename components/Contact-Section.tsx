@@ -150,7 +150,7 @@ export default function ContactSection() {
             <SocialIcon icon="github" />
             <SocialIcon icon="email" />
             <SocialIcon icon="instagram" />
-            <SocialIcon icon="linkedin" />
+            <SocialIcon icon="whatsapp" />
       </div>
 
       {showButton && (
