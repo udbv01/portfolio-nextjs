@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Standard-Schriftart für alle Elemente */
+html {
+  font-family: var(--font-varela-round), sans-serif;
+}
+
+/* Optionale Feinjustierung für andere Elemente */
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px; /* Basisgröße (kann angepasst werden) */
+  line-height: 1.5; /* Lesbarkeit verbessern */
+}
+
+
 .tooltip {
     position: absolute;
     display: inline-block;
@@ -27,4 +41,76 @@
   .tooltip:hover::after {
     opacity: 1;
   }
+  
+  .clip-diagonal-flipped {
+    clip-path: polygon(100% 100%, 100% 0, 0 100%);
+    z-index: 0; /* Damit es unter dem Inhalt bleibt */
+  }
+
+  .clip-triangle-up-left {
+    clip-path: polygon(0 100%, 100% 100%, 0 0);
+    z-index: 0; /* Die schwarze Fläche bleibt im Hintergrund */
+  }
+  
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-fade-in-up {
+    animation: fadeInUp 1s ease-out;
+  }
+  
+  
+  .active-project {
+    position: relative;
+  }
+
+  .active-project::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    bottom: -2px;
+    left: -2px;
+    background: linear-gradient(90deg, #ff0000, #ffa500, #ffff00, #008000, #0000ff, #4b0082, #ee82ee);
+    background-size: 400% 400%;
+    border-radius: 8px;
+    z-index: -1;
+    animation: moveGradient 8s linear infinite;
+  }
+
+  .active-project::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: #1a1a1a;
+    border-radius: 6px;
+    z-index: -1;
+  }
+  
+  .shadow-custom {
+    box-shadow: 1px 1px 10px rgba(191, 191, 191, 0.5);
+  }
+
+  @keyframes moveGradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 400% 50%;
+    }
+  }
+  
+  
+  
   

@@ -156,7 +156,7 @@ export default function ContactSection() {
       {showButton && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 bg-gray-800 text-white p-3 rounded-md shadow-lg hover:bg-gray-500 transition-all duration-400"
+          className="fixed bottom-8 right-8 bg-gray-400 text-white w-10 h-10 p-2 rounded-md shadow-lg hover:bg-black transition-all duration-400"
         >
           ↑
         </button>

@@ -30,19 +30,25 @@ export default function HeroSection() {
       <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
 
       {/* Left white column (social icons) - hidden on mobile */}
-      <div className="hidden md:flex md:w-[15%] bg-white justify-left items-center p-4 min-h-screen">
-        <div className="flex flex-col space-y-4">
-        <SocialIcon icon="github" />
-        <SocialIcon icon="email" />
-        <SocialIcon icon="instagram" />
-        <SocialIcon icon="whatsapp" />
-        </div>
-      </div>
+      <div className="hidden md:flex md:w-[15%] bg-white justify-left items-center p-4 min-h-screen relative overflow-hidden">
+  {/* Diagonale Hälfte */}
+  <div className="absolute top-0 left-0 w-full h-full bg-black clip-diagonal-flipped" />
+
+  {/* Inhalte */}
+  <div className="flex flex-col space-y-4 relative z-10">
+    <SocialIcon icon="github" />
+    <SocialIcon icon="email" />
+    <SocialIcon icon="instagram" />
+    <SocialIcon icon="whatsapp" />
+  </div>
+</div>
+
+
 
       {/* Middle column */}
       <div className="w-full md:w-[70%] flex flex-col justify-center items-center px-4 py-20">
         <TypedHeadline headlines={headlines} />
-        <p className="text-[clamp(1rem, 2.5vw, 1.25rem)] animate-fade-in-up text-gray-700 md:text-gray-400 p-20">
+        <p className="text-[clamp(1rem, 2.5vw, 1.25rem)] animate-fade-in-up text-gray-700 md:text-gray-400 p-6 md-p-20">
         Ich bin ein mehrsprachiger, ausgebildeter E-Commerce-Kaufmann, der seine Leidenschaft für Webdesign entdeckt hat. Diese Begeisterung hat mich dazu inspiriert, mich auf die Entwicklung moderner und benutzerfreundlicher Webanwendungen zu spezialisieren.
         </p>
 
@@ -56,7 +62,12 @@ export default function HeroSection() {
       </div>
 
       {/* Right white column */}
-      <div className="hidden md:block md:w-[15%] bg-white min-h-screen"></div>
-    </div>
+      <div className="hidden md:block md:w-[15%] bg-white min-h-screen relative overflow-hidden">
+        {/* Diagonale schwarze Fläche */}
+        <div className="absolute top-0 left-0 w-full h-full bg-black clip-triangle-up-left" />
+      </div>
+
+
+</div>
   )
 }

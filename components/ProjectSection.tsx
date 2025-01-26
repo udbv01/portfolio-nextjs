@@ -140,51 +140,6 @@ export function ProjectSection() {
             );
         })}
       </div>
-
-      <style jsx global>{`
-        .active-project {
-          position: relative;
-        }
-
-        .active-project::before {
-          content: '';
-          position: absolute;
-          top: -2px;
-          right: -2px;
-          bottom: -2px;
-          left: -2px;
-          background: linear-gradient(90deg, #ff0000, #ffa500, #ffff00, #008000, #0000ff, #4b0082, #ee82ee);
-          background-size: 400% 400%;
-          border-radius: 8px;
-          z-index: -1;
-          animation: moveGradient 8s linear infinite;
-        }
-
-        .active-project::after {
-          content: '';
-          position: absolute;
-          top: 0;
-          right: 0;
-          bottom: 0;
-          left: 0;
-          background: #1a1a1a;
-          border-radius: 6px;
-          z-index: -1;
-        }
-        
-        .shadow-custom {
-          box-shadow: 1px 1px 10px rgba(191, 191, 191, 0.5);
-        }
-
-        @keyframes moveGradient {
-          0% {
-            background-position: 0% 50%;
-          }
-          100% {
-            background-position: 400% 50%;
-          }
-        }
-      `}</style>
     </div>
   );
 }
