@@ -14,8 +14,8 @@ interface Skill {
 const skills: Skill[] = [
   { name: 'HTML', level: 89, x: 20, y: 20, connections: ['CSS', 'JavaScript', 'Webflow'] },
   { name: 'CSS', level: 80, x: 90, y: 30, connections: ['HTML', 'JavaScript', 'React', 'Next.js'] },
-  { name: 'React', level: 50, x: 50, y: 50, connections: ['JavaScript', 'TypeScript', 'Next.js', 'CSS'] },
-  { name: 'Next.js', level: 50, x: 60, y: 85, connections: ['React', 'TypeScript', 'Node.js', 'CSS'] },
+  { name: 'React', level: 50, x: 60, y: 30, connections: ['JavaScript', 'TypeScript', 'Next.js', 'CSS'] },
+  { name: 'Next.js', level: 50, x: 63, y: 85, connections: ['React', 'TypeScript', 'Node.js', 'CSS'] },
   { name: 'Figma', level: 70, x: 30, y: 80, connections: ['HTML', 'CSS', 'Webflow'] },
   { name: 'JavaScript', level: 60, x: 10, y: 60, connections: ['HTML', 'CSS', 'TypeScript', 'React', 'Node.js', 'Webflow'] },
   { name: 'TypeScript', level: 55, x: 75, y: 75, connections: ['JavaScript', 'React', 'Next.js', 'CSS', 'Node.js'] },

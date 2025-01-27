@@ -22,7 +22,7 @@ const projects: Project[] = [
   },
   {
     title: 'Wordpress Homepage',
-    description: 'Eine Unternehmensseite, die ich für meinen Kumpel erstellt habe, um meine Fähigkeiten in Wordpress weiterzuentwickeln.',
+    description: 'Eine Unternehmensseite, die ich mithilfe von Elementor erstellt habe, um meine Fähigkeiten in Wordpress weiterzuentwickeln.',
     image: '/wp-eichlerwerbung.jpg',
     liveDemoUrl: 'https://eichlerwerbung.de/wordpress/',
     moreInfoUrl: '',
